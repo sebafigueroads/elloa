@@ -385,7 +385,7 @@ html.js .rv.on{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.
     function paso(ts){
       if(t0===null) t0=ts;
       var p=Math.min(1,(ts-t0)/2200), e=1-Math.pow(1-p,3);
-      el.textContent=miles(fin*e);
+      el.textContent=miles(fin*(0.55+0.45*e));
       if(p<1) requestAnimationFrame(paso);
     }
     requestAnimationFrame(paso);
