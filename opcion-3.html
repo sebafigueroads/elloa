@@ -1,0 +1,512 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Llegar y Salir · Aeropuerto El Loa · Propuesta Digitals</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Dirección 03 para el sitio del Aeropuerto El Loa: calculadora de estacionamiento, comparador de transporte a Calama y San Pedro, checklist de viaje y contacto directo.">
+<meta name="theme-color" content="#FFFFFF">
+<link rel="icon" type="image/png" sizes="512x512" href="img/marca/favicon-512.png">
+<link rel="apple-touch-icon" href="img/marca/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Llegar y Salir · Aeropuerto El Loa">
+<meta property="og:description" content="Dirección 03 propuesta por Digitals para el sitio del Aeropuerto El Loa de Calama.">
+<meta property="og:image" content="https://sebafigueroads.github.io/elloa/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Manrope:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#002C58; --deep:#00223F; --red:#DA291C; --redd:#A31E14; --redt:#FF6E5F;
+  --paper:#FFFFFF; --bone:#F4F1ED; --line:#DCD8D2; --mute:#5A646E; --ink:#0C1620;
+  --fd:"Manrope",system-ui,sans-serif; --fm:"JetBrains Mono",ui-monospace,monospace;
+  --g:clamp(18px,4.6vw,68px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--paper);color:var(--ink);font-family:var(--fd);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,figure,fieldset{margin:0}
+fieldset{border:0;padding:0;min-width:0}
+ul{list-style:none;padding:0}
+button,input,select,textarea{font:inherit;color:inherit}
+.wrap{width:100%;max-width:1300px;margin:0 auto;padding-left:var(--g);padding-right:var(--g)}
+.mono{font-family:var(--fm);font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+:focus-visible{outline:3px solid var(--navy);outline-offset:2px}
+
+.bar{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(255,255,255,.94);backdrop-filter:blur(10px);border-bottom:1px solid var(--line)}
+.bar__in{display:flex;align-items:center;gap:14px;min-height:58px}
+.bar__logo{height:32px;width:auto}
+.bar__tag{font-family:var(--fm);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mute);border-left:1px solid var(--line);padding-left:14px;line-height:1.3}
+.bar__back{margin-left:auto;font-family:var(--fm);font-size:11px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border:1px solid var(--navy);color:var(--navy);border-radius:999px;padding:11px 16px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
+.bar__back:hover{background:var(--navy);color:#fff}
+@media(max-width:640px){.bar__tag{display:none}}
+
+/* hero */
+.hero{padding-top:calc(58px + clamp(40px,7vw,96px));position:relative}
+.hero__kick{color:var(--redd);margin-bottom:clamp(16px,3vw,26px)}
+.hero__kick span{color:var(--mute)}
+h1{font-size:clamp(2.6rem,9.6vw,9.4rem);line-height:.86;letter-spacing:-.05em;font-weight:800}
+h1 em{font-style:normal;color:var(--red)}
+.hero__row{display:grid;gap:clamp(20px,3vw,44px);grid-template-columns:1fr;align-items:end;margin-top:clamp(20px,3vw,34px);padding-bottom:clamp(30px,4vw,52px)}
+@media(min-width:900px){.hero__row{grid-template-columns:1fr auto}}
+.hero__lead{font-size:clamp(1.02rem,1.4vw,1.24rem);color:#3C4650;max-width:46ch}
+.wclock{display:flex;gap:24px;flex-wrap:wrap}
+.wclock div{border-left:2px solid var(--red);padding-left:14px}
+.wclock b{display:block;font-family:var(--fm);font-weight:700;font-size:clamp(1.6rem,3.8vw,2.6rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums;color:var(--navy)}
+.wclock small{display:block;margin-top:8px;font-family:var(--fm);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:var(--mute)}
+.banda{overflow:hidden}
+.banda img{width:100%;height:clamp(220px,40vw,520px);object-fit:cover;object-position:50% 60%}
+.banda--r{border-radius:0 0 220px 0}
+@media(max-width:640px){.banda--r{border-radius:0 0 84px 0}}
+
+/* secciones */
+.sec{padding-top:clamp(64px,9vw,140px);padding-bottom:clamp(52px,7vw,110px)}
+.sec--bone{background:var(--bone)}
+.num{color:var(--redd);margin-bottom:18px}
+h2{font-size:clamp(2rem,5.2vw,4.3rem);line-height:.94;letter-spacing:-.035em;font-weight:800;text-wrap:balance}
+.lead{margin-top:18px;font-size:clamp(1rem,1.3vw,1.16rem);line-height:1.6;max-width:56ch;color:#3C4650}
+.nota{margin-top:18px;font-family:var(--fm);font-size:11px;line-height:1.75;letter-spacing:.4px;color:var(--mute);max-width:74ch}
+.nota a{color:var(--navy)}
+
+/* --- calculadora --- */
+.calc{margin-top:clamp(30px,4.4vw,56px);background:var(--navy);color:#fff;border-radius:36px 36px 200px 36px;padding:clamp(26px,4vw,54px);overflow:hidden}
+@media(max-width:640px){.calc{border-radius:28px 28px 76px 28px}}
+.calc__grid{display:grid;gap:clamp(26px,4vw,54px);grid-template-columns:1fr}
+@media(min-width:900px){.calc__grid{grid-template-columns:1.05fr .95fr;align-items:center}}
+.calc label.mono{display:block;color:rgba(255,255,255,.72);margin-bottom:14px}
+.presets{display:flex;flex-wrap:wrap;gap:8px;margin-bottom:22px}
+.presets button{appearance:none;cursor:pointer;background:transparent;border:1px solid rgba(255,255,255,.4);color:#fff;border-radius:999px;padding:11px 15px;min-height:44px;font-family:var(--fm);font-size:11px;letter-spacing:1px;font-weight:700}
+.presets button:hover{background:rgba(255,255,255,.14)}
+.presets button[aria-pressed="true"]{background:var(--red);border-color:var(--red)}
+input[type=range]{width:100%;accent-color:#FF6E5F;height:36px}
+.tiempo{font-family:var(--fm);font-weight:700;font-size:clamp(1.5rem,4vw,2.3rem);letter-spacing:-.02em;line-height:1;margin-bottom:16px;font-variant-numeric:tabular-nums}
+.res{border-top:2px solid var(--red);padding-top:20px}
+.res b{display:block;font-family:var(--fm);font-weight:700;font-size:clamp(3rem,10vw,6.4rem);line-height:.9;letter-spacing:-.05em;font-variant-numeric:tabular-nums}
+.res small{display:block;margin-top:14px;font-family:var(--fm);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.72)}
+.desglose{margin-top:22px;border-top:1px solid rgba(255,255,255,.24)}
+.desglose li{display:flex;justify-content:space-between;gap:16px;padding:11px 0;border-bottom:1px solid rgba(255,255,255,.24);font-family:var(--fm);font-size:11.5px;letter-spacing:.7px;color:rgba(255,255,255,.86)}
+.desglose li b{font-variant-numeric:tabular-nums}
+.calc .nota{color:rgba(255,255,255,.62)}
+
+/* --- comparador --- */
+.form2{display:grid;gap:16px;grid-template-columns:1fr;margin-top:clamp(26px,4vw,44px)}
+@media(min-width:760px){.form2{grid-template-columns:2fr 1fr}}
+.campo label{display:block;font-family:var(--fm);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;font-weight:700;color:var(--mute);margin-bottom:9px}
+.campo select,.campo input,.campo textarea{width:100%;min-height:52px;border:1.5px solid var(--line);border-radius:14px;padding:13px 16px;background:#fff;font-size:16px}
+.campo textarea{min-height:130px;resize:vertical;line-height:1.55}
+.campo select:focus,.campo input:focus,.campo textarea:focus{border-color:var(--navy)}
+.vs{display:grid;gap:16px;grid-template-columns:1fr;margin-top:clamp(24px,3.4vw,40px)}
+@media(min-width:760px){.vs{grid-template-columns:1fr 1fr}}
+.opt{border:1.5px solid var(--line);border-radius:26px;padding:clamp(22px,3vw,34px);background:#fff;position:relative}
+.opt[data-mejor="1"]{border-color:var(--navy);border-width:2.5px}
+.opt h3{font-size:clamp(1.2rem,2.2vw,1.6rem);font-weight:800;letter-spacing:-.02em}
+.opt .mono{color:var(--mute);display:block;margin-bottom:10px}
+.opt b{display:block;margin-top:16px;font-family:var(--fm);font-weight:700;font-size:clamp(2.1rem,6vw,3.4rem);line-height:.95;letter-spacing:-.04em;color:var(--navy);font-variant-numeric:tabular-nums}
+.opt small{display:block;margin-top:11px;font-family:var(--fm);font-size:11px;letter-spacing:.9px;color:var(--mute)}
+.badge{position:absolute;top:-13px;left:clamp(22px,3vw,34px);background:var(--navy);color:#fff;border-radius:999px;padding:6px 14px;font-family:var(--fm);font-size:10.5px;letter-spacing:1.1px;text-transform:uppercase;font-weight:700}
+.opt[data-mejor="0"] .badge{display:none}
+
+/* --- checklist --- */
+.chk{margin-top:clamp(26px,4vw,46px);border-top:1px solid var(--line)}
+.chk li{border-bottom:1px solid var(--line)}
+.chk label{display:flex;gap:16px;align-items:flex-start;padding:18px 0;cursor:pointer;min-height:44px}
+.chk input{appearance:none;-webkit-appearance:none;flex:0 0 auto;width:26px;height:26px;margin-top:2px;border:2px solid var(--navy);border-radius:8px;background:#fff;cursor:pointer;position:relative}
+.chk input:checked{background:var(--navy)}
+.chk input:checked:after{content:"";position:absolute;left:8px;top:3px;width:6px;height:13px;border:solid #fff;border-width:0 2.5px 2.5px 0;transform:rotate(42deg)}
+.chk .t{font-size:clamp(1.02rem,1.9vw,1.28rem);font-weight:700;letter-spacing:-.015em;line-height:1.3}
+.chk .d{display:block;margin-top:6px;font-size:15px;color:#3C4650;font-weight:400;line-height:1.5}
+.chk input:checked ~ .txt .t{color:var(--mute);text-decoration:line-through}
+.prog{margin-top:20px;font-family:var(--fm);font-size:11.5px;letter-spacing:1.1px;text-transform:uppercase;color:var(--navy);font-weight:700}
+
+/* --- contacto --- */
+.sec--red{background:var(--navy);color:#fff}
+.sec--red .num{color:var(--redt)}
+.sec--red .lead{color:rgba(255,255,255,.82)}
+.sec--red .nota{color:rgba(255,255,255,.6)}
+.sec--red .nota a{color:#fff}
+.sec--red .campo label{color:rgba(255,255,255,.72)}
+.sec--red .campo select,.sec--red .campo input,.sec--red .campo textarea{background:rgba(255,255,255,.07);border-color:rgba(255,255,255,.34);color:#fff}
+.sec--red .campo select{color:#fff}
+.sec--red .campo select option{color:#0C1620}
+.sec--red .campo input::placeholder,.sec--red .campo textarea::placeholder{color:rgba(255,255,255,.66)}
+.grid2{display:grid;gap:16px;grid-template-columns:1fr;margin-top:clamp(26px,4vw,44px)}
+@media(min-width:760px){.grid2{grid-template-columns:1fr 1fr}.grid2 .full{grid-column:1/-1}}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:22px}
+.btn{display:inline-flex;align-items:center;justify-content:center;min-height:54px;padding:15px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:15px;border:0;cursor:pointer}
+.btn--red{background:var(--red);color:#fff}
+.btn--red:hover{background:#fff;color:var(--red)}
+.btn--gh{background:transparent;border:1px solid rgba(255,255,255,.42);color:#fff}
+.btn--gh:hover{background:rgba(255,255,255,.12);border-color:#fff}
+.aviso{margin-top:16px;font-family:var(--fm);font-size:11px;letter-spacing:.6px;color:rgba(255,255,255,.72);min-height:18px}
+.pie{margin-top:clamp(40px,5vw,68px);padding-top:24px;border-top:1px solid rgba(255,255,255,.2);display:flex;flex-wrap:wrap;gap:13px 26px;align-items:center;font-family:var(--fm);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.pie a{color:rgba(255,255,255,.88)}
+
+.duo{display:grid;gap:clamp(28px,4.6vw,60px);grid-template-columns:1fr;align-items:center;margin-top:clamp(30px,4.4vw,58px)}
+@media(min-width:900px){.duo{grid-template-columns:1fr 1fr}.duo--r .duo__ph{order:2}}
+.duo__ph{overflow:hidden;border-radius:220px 20px 220px 20px}
+.duo__ph img{width:100%;max-height:620px;object-fit:cover}
+.duo--r .duo__ph{border-radius:20px 220px 20px 220px}
+@media(max-width:640px){.duo__ph,.duo--r .duo__ph{border-radius:76px 14px 76px 14px}}
+
+html.js .rv{opacity:0;transform:translateY(18px)}
+html.js .rv.on{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+@media(prefers-reduced-motion:reduce){
+  html.js .rv,html.js .rv.on{opacity:1!important;transform:none!important;transition:none!important}
+  *{scroll-behavior:auto!important}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <img class="bar__logo" src="img/marca/logo-elloa.png" width="844" height="544" alt="Aeropuerto El Loa">
+    <span class="bar__tag">Dirección 03 · «Llegar y Salir»</span>
+    <a class="bar__back" href="index.html">Las 3 direcciones</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="mono hero__kick">Aeropuerto El Loa <span>· A 6 km de Calama · Terminal 24 horas</span></p>
+    <!-- COPY PROPUESTO -->
+    <h1>Llegar<br>y <em>salir</em></h1>
+    <div class="hero__row">
+      <!-- COPY PROPUESTO -->
+      <p class="hero__lead">Cuánto cuesta dejar el auto, cuánto cuesta llegar a Calama o a San Pedro, qué llevar en la mano y a quién escribirle. Todo resuelto antes de tomar la carretera.</p>
+      <div class="wclock">
+        <div><b id="reloj">--:--:--</b><small>Hora de Chile</small></div>
+        <div><b id="pax" data-final="1465192">1.465.192</b><small>Pasajeros embarcados 2025</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<div class="banda banda--r rv"><img src="img/acceso-terminal.jpg" width="1920" height="1171" alt="Acceso al terminal de pasajeros del Aeropuerto El Loa, con la cubierta ondulada de terracota sobre la fachada de vidrio."></div>
+
+<section class="sec" id="estacionamiento">
+  <div class="wrap">
+    <p class="mono num rv">01 · Estacionamiento</p>
+    <h2 class="rv">¿Cuánto le va<br>a costar dejarlo?</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">Mueva el control y vea el monto. La tarifa es la publicada por el aeropuerto: $51 por minuto, con los primeros diez minutos liberados y un tope diario equivalente a seis horas.</p>
+
+    <div class="calc rv">
+      <div class="calc__grid">
+        <div>
+          <label class="mono" for="mins">Tiempo estimado en el estacionamiento</label>
+          <p class="tiempo" id="tiempo">1 h 00 min</p>
+          <input id="mins" type="range" min="5" max="1440" step="5" value="60" aria-describedby="monto">
+          <div class="presets" role="group" aria-label="Tiempos frecuentes">
+            <button type="button" data-m="10" aria-pressed="false">10 min</button>
+            <button type="button" data-m="30" aria-pressed="false">30 min</button>
+            <button type="button" data-m="60" aria-pressed="true">1 h</button>
+            <button type="button" data-m="180" aria-pressed="false">3 h</button>
+            <button type="button" data-m="360" aria-pressed="false">6 h</button>
+            <button type="button" data-m="1440" aria-pressed="false">1 día</button>
+          </div>
+          <ul class="desglose">
+            <li><span>Minutos cobrables</span><b id="dCob">50</b></li>
+            <li><span>Minutos liberados</span><b>10</b></li>
+            <li><span>Tarifa</span><b>$51 / min</b></li>
+            <li><span>Tope diario</span><b id="dTope">No aplica</b></li>
+          </ul>
+        </div>
+        <div>
+          <div class="res">
+            <b id="monto" aria-live="polite">$2.550</b>
+            <small>Total estimado · IVA incluido</small>
+          </div>
+          <p class="nota">Cálculo referencial construido con la tarifa publicada por el aeropuerto. El monto final lo determina el sistema del estacionamiento. El pago se realiza en el mesón de informaciones o en el cajero automático del estacionamiento; si pierde el ticket, consulte en el mesón de informaciones.</p>
+        </div>
+      </div>
+    </div>
+
+    <div class="duo duo--r">
+      <figure class="duo__ph rv"><img src="img/techo-aereo.jpg" width="804" height="549" alt="Vista aérea de la cubierta de terracota del terminal y de la explanada de estacionamientos."></figure>
+      <div class="rv">
+        <h3 style="font-size:clamp(1.3rem,2.4vw,1.9rem);font-weight:800;letter-spacing:-.02em">Convenios mensuales</h3>
+        <ul class="chk" style="margin-top:20px">
+          <li><label style="cursor:default"><span class="txt"><span class="t">8 UF al mes</span><span class="d">Convenio corporativo suscrito, con IVA incluido.</span></span></label></li>
+          <li><label style="cursor:default"><span class="txt"><span class="t">16 UF al mes</span><span class="d">Convenio para vehículos pesados, incluye buses, con IVA incluido.</span></span></label></li>
+          <li><label style="cursor:default"><span class="txt"><span class="t">24 horas, todo el año</span><span class="d">Los estacionamientos están disponibles todos los días del año.</span></span></label></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--bone" id="transporte">
+  <div class="wrap">
+    <p class="mono num rv">02 · Transporte</p>
+    <h2 class="rv">Taxi o transfer:<br>haga el cálculo.</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">El taxi se cobra por vehículo y el transfer por persona. Elija el tramo y cuántos viajan, y vea cuál le conviene.</p>
+    <div class="form2 rv">
+      <div class="campo">
+        <label for="tramo">Tramo</label>
+        <select id="tramo">
+          <option value="0">Avda. Jorge Alessandri · sector Peuco</option>
+          <option value="1">Avda. Chorrillo · Avda. Grecia · Calle Sotomayor</option>
+          <option value="2">Entrada norte de la ciudad · Puerto Seco</option>
+          <option value="3" selected>San Pedro de Atacama</option>
+          <option value="4">Sierra Gorda</option>
+        </select>
+      </div>
+      <div class="campo">
+        <label for="pers">Pasajeros</label>
+        <select id="pers">
+          <option>1</option><option>2</option><option selected>3</option><option>4</option>
+          <option>5</option><option>6</option><option>7</option><option>8</option>
+        </select>
+      </div>
+    </div>
+    <div class="vs">
+      <div class="opt rv" id="optTaxi" data-mejor="0">
+        <span class="badge">Más económico</span>
+        <span class="mono">Taxi</span>
+        <h3>Tarifa por vehículo</h3>
+        <b id="taxiTot">$75.000</b>
+        <small id="taxiDet">$75.000 por vehículo</small>
+      </div>
+      <div class="opt rv" id="optTra" data-mejor="1">
+        <span class="badge">Más económico</span>
+        <span class="mono">Transfer</span>
+        <h3>Tarifa por persona</h3>
+        <b id="traTot">$53.700</b>
+        <small id="traDet">$17.900 × 3 pasajeros</small>
+      </div>
+    </div>
+    <p class="nota">Tarifas vigentes desde el 1 de abril de 2026. Los taxis autorizados y los transfers Altiplánico, Pampa y Transvip atienden en mesones del primer nivel del terminal. Ocho empresas de rent a car operan en el hall público.</p>
+  </div>
+</section>
+
+<section class="sec" id="checklist">
+  <div class="wrap">
+    <p class="mono num rv">03 · Antes de venir</p>
+    <h2 class="rv">Siete cosas<br>y está listo.</h2>
+    <p class="lead rv" id="progTxt">Márquelas a medida que las resuelva.</p>
+    <p class="prog rv" id="prog" aria-live="polite">0 de 7 resueltas</p>
+    <ul class="chk rv" id="lista">
+      <li><label><input type="checkbox"><span class="txt"><span class="t">Documentos para vuelo nacional</span><span class="d">Cédula de identidad y pasajes.</span></span></label></li>
+      <li><label><input type="checkbox"><span class="txt"><span class="t">Documentos para vuelo internacional</span><span class="d">Pasaporte, cédula de identidad y pasajes.</span></span></label></li>
+      <li><label><input type="checkbox"><span class="txt"><span class="t">Revise los elementos prohibidos en cabina</span><span class="d">El listado está en las preguntas frecuentes del aeropuerto.</span></span></label></li>
+      <li><label><input type="checkbox"><span class="txt"><span class="t">Prótesis metálicas</span><span class="d">Si usa prótesis metálicas, avise en el control de seguridad antes de pasar por el detector de metales.</span></span></label></li>
+      <li><label><input type="checkbox"><span class="txt"><span class="t">Asistencia por movilidad reducida</span><span class="d">Se solicita con al menos 48 horas de anticipación e incluye punto de encuentro acordado.</span></span></label></li>
+      <li><label><input type="checkbox"><span class="txt"><span class="t">Equipaje facturado</span><span class="d">Las consultas por equipaje las atiende la línea aérea con la que vuela.</span></span></label></li>
+      <li><label><input type="checkbox"><span class="txt"><span class="t">Estacionamiento</span><span class="d">Guarde el ticket: el pago se hace en el mesón de informaciones o en el cajero automático del estacionamiento.</span></span></label></li>
+    </ul>
+    <p class="nota">Información publicada por el aeropuerto en sus preguntas frecuentes y en la página de asistencia a pasajeros con movilidad reducida: <a href="https://www.aeropuertoelloa.cl/preguntas-frecuentes/" rel="noopener">preguntas frecuentes</a> · <a href="https://www.aeropuertoelloa.cl/asistencia-pmr/" rel="noopener">asistencia PMR</a>.</p>
+  </div>
+</section>
+
+<section class="sec sec--red" id="contacto">
+  <div class="wrap">
+    <p class="mono num rv">04 · Escríbanos</p>
+    <h2 class="rv">Su mensaje,<br>ya redactado.</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">Complete los campos y el correo se arma solo, dirigido a atención a público. Si prefiere hablar, el teléfono está más abajo.</p>
+    <form class="grid2 rv" id="fm" novalidate>
+      <div class="campo">
+        <label for="f-nom">Nombre</label>
+        <input id="f-nom" type="text" autocomplete="name" placeholder="Su nombre">
+      </div>
+      <div class="campo">
+        <label for="f-mail">Correo de contacto</label>
+        <input id="f-mail" type="email" autocomplete="email" placeholder="nombre@correo.cl">
+      </div>
+      <div class="campo">
+        <label for="f-tel">Teléfono</label>
+        <input id="f-tel" type="tel" autocomplete="tel" placeholder="+56 9 ...">
+      </div>
+      <div class="campo">
+        <label for="f-mot">Motivo</label>
+        <select id="f-mot">
+          <option>Consulta</option>
+          <option>Reclamo</option>
+          <option>Sugerencia</option>
+          <option>Felicitaciones</option>
+          <!-- COPY PROPUESTO -->
+          <option>Objeto perdido en el terminal</option>
+        </select>
+      </div>
+      <div class="campo full">
+        <label for="f-msg">Mensaje</label>
+        <textarea id="f-msg" placeholder="Cuéntenos qué necesita"></textarea>
+      </div>
+      <div class="full">
+        <div class="cta">
+          <button class="btn btn--red" type="submit">Abrir el correo ya redactado</button>
+          <a class="btn btn--gh" href="tel:+56958738669">Llamar +56 9 5873 8669</a>
+          <a class="btn btn--gh" href="tel:+56552344897">Informaciones (55) 234 4897</a>
+        </div>
+        <p class="aviso" id="aviso"></p>
+      </div>
+    </form>
+    <p class="nota">El correo se abre en su aplicación de correo dirigido a <a href="mailto:atencionapublico@aeropuertoelloa.cl">atencionapublico@aeropuertoelloa.cl</a>. Las consultas por equipaje facturado las atiende su línea aérea. Los reclamos formales se presentan ante la DGAC en <a href="https://www.dgac.gob.cl/oirs" rel="noopener">dgac.gob.cl/oirs</a> y los derechos del pasajero están en <a href="https://derechosdelpasajero.jac.gob.cl" rel="noopener">derechosdelpasajero.jac.gob.cl</a>. Terminal operativo 24 horas del día.</p>
+    <div class="pie">
+      <span>Propuesta Digitals · Dirección 03</span>
+      <a href="opcion-1.html">Ver «Puerta del Desierto»</a>
+      <a href="opcion-2.html">Ver «Tablero»</a>
+      <a href="index.html">Volver al índice</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var d=document.documentElement; d.classList.add('js');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+  function miles(n){ return String(Math.round(n)).replace(/\B(?=(\d{3})+(?!\d))/g,'.'); }
+  function pesos(n){ return '$'+miles(n); }
+
+  /* reloj */
+  var rel=document.getElementById('reloj'), fmt=null;
+  try{ fmt=new Intl.DateTimeFormat('es-CL',{timeZone:'America/Santiago',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}); }catch(e){ fmt=null; }
+  function tick(){
+    var n=new Date();
+    if(rel) rel.textContent = fmt ? fmt.format(n).replace(/\./g,'') : ('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2)+':'+('0'+n.getSeconds()).slice(-2);
+  }
+  tick(); setInterval(tick,1000);
+
+  /* contador */
+  var pax=document.getElementById('pax');
+  function corre(el){
+    var fin=parseInt(el.getAttribute('data-final'),10)||0;
+    if(reduce){ el.textContent=miles(fin); return; }
+    var t0=null;
+    function paso(ts){
+      if(t0===null) t0=ts;
+      var p=Math.min(1,(ts-t0)/2200), e=1-Math.pow(1-p,3);
+      el.textContent=miles(fin*e);
+      if(p<1) requestAnimationFrame(paso);
+    }
+    requestAnimationFrame(paso);
+  }
+  if(pax) setTimeout(function(){ corre(pax); },350);
+
+  /* calculadora de estacionamiento */
+  var TARIFA=51, LIBRES=10, TOPE=360;
+  var mins=document.getElementById('mins'), tiempo=document.getElementById('tiempo'),
+      monto=document.getElementById('monto'), dCob=document.getElementById('dCob'), dTope=document.getElementById('dTope');
+  var presets=[].slice.call(document.querySelectorAll('.presets button'));
+  function fmtT(m){
+    var h=Math.floor(m/60), r=m%60;
+    if(h===0) return r+' min';
+    return h+' h '+('0'+r).slice(-2)+' min';
+  }
+  function calcula(){
+    if(!mins) return;
+    var m=parseInt(mins.value,10)||0;
+    var cob=Math.max(0,m-LIBRES);
+    var tope=cob>TOPE;
+    if(tope) cob=TOPE;
+    if(tiempo) tiempo.textContent=fmtT(m);
+    if(monto) monto.textContent=pesos(cob*TARIFA);
+    if(dCob) dCob.textContent=miles(cob);
+    if(dTope) dTope.textContent = tope ? 'Aplicado · 6 h' : 'No aplica';
+    presets.forEach(function(b){
+      b.setAttribute('aria-pressed', parseInt(b.getAttribute('data-m'),10)===m ? 'true':'false');
+    });
+  }
+  if(mins) mins.addEventListener('input',calcula);
+  presets.forEach(function(b){
+    b.addEventListener('click',function(){
+      if(mins){ mins.value=b.getAttribute('data-m'); calcula(); }
+    });
+  });
+  calcula();
+
+  /* comparador de transporte */
+  var TRAMOS=[
+    {n:'Avda. Jorge Alessandri, sector Peuco', taxi:8000, tra:7000},
+    {n:'Avda. Chorrillo, Avda. Grecia o calle Sotomayor', taxi:10000, tra:8000},
+    {n:'Entrada norte de la ciudad, Puerto Seco', taxi:15000, tra:10000},
+    {n:'San Pedro de Atacama', taxi:75000, tra:17900},
+    {n:'Sierra Gorda', taxi:57000, tra:35300}
+  ];
+  var selT=document.getElementById('tramo'), selP=document.getElementById('pers');
+  var taxiTot=document.getElementById('taxiTot'), taxiDet=document.getElementById('taxiDet');
+  var traTot=document.getElementById('traTot'), traDet=document.getElementById('traDet');
+  var optTaxi=document.getElementById('optTaxi'), optTra=document.getElementById('optTra');
+  function compara(){
+    if(!selT||!selP) return;
+    var t=TRAMOS[parseInt(selT.value,10)||0];
+    var n=parseInt(selP.value,10)||1;
+    var a=t.taxi, b=t.tra*n;
+    taxiTot.textContent=pesos(a);
+    taxiDet.textContent=pesos(t.taxi)+' por vehículo';
+    traTot.textContent=pesos(b);
+    traDet.textContent=pesos(t.tra)+' × '+n+(n===1?' pasajero':' pasajeros');
+    optTaxi.setAttribute('data-mejor', a<=b ? '1':'0');
+    optTra.setAttribute('data-mejor', b<a ? '1':'0');
+  }
+  if(selT) selT.addEventListener('change',compara);
+  if(selP) selP.addEventListener('change',compara);
+  compara();
+
+  /* checklist */
+  var lista=document.getElementById('lista'), prog=document.getElementById('prog');
+  if(lista&&prog){
+    var cajas=[].slice.call(lista.querySelectorAll('input[type=checkbox]'));
+    var actualiza=function(){
+      var n=cajas.filter(function(c){ return c.checked; }).length;
+      prog.textContent=n+' de '+cajas.length+' resueltas';
+    };
+    cajas.forEach(function(c){ c.addEventListener('change',actualiza); });
+    actualiza();
+  }
+
+  /* formulario que arma el correo */
+  var fm=document.getElementById('fm'), aviso=document.getElementById('aviso');
+  if(fm){
+    fm.addEventListener('submit',function(ev){
+      ev.preventDefault();
+      var val=function(id){ var e=document.getElementById(id); return e?String(e.value).trim():''; };
+      var nom=val('f-nom'), mail=val('f-mail'), tel=val('f-tel'), mot=val('f-mot'), msg=val('f-msg');
+      if(!nom || !msg){
+        if(aviso) aviso.textContent='Escriba al menos su nombre y el mensaje para armar el correo.';
+        var faltante=document.getElementById(nom?'f-msg':'f-nom');
+        if(faltante) faltante.focus();
+        return;
+      }
+      var cuerpo=[
+        mot+' dirigida al Aeropuerto El Loa.',
+        '',
+        msg,
+        '',
+        '---',
+        'Nombre: '+nom,
+        'Correo: '+(mail||'no indicado'),
+        'Teléfono: '+(tel||'no indicado')
+      ].join('\n');
+      var url='mailto:atencionapublico@aeropuertoelloa.cl'+
+              '?subject='+encodeURIComponent(mot+' · '+nom)+
+              '&body='+encodeURIComponent(cuerpo);
+      if(aviso) aviso.textContent='Abriendo su aplicación de correo con el mensaje ya redactado.';
+      window.location.href=url;
+    });
+  }
+
+  /* reveal */
+  var items=[].slice.call(document.querySelectorAll('.rv'));
+  var mostrar=function(el){ el.classList.add('on'); };
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){ mostrar(en.target); io.unobserve(en.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    items.forEach(function(el){ io.observe(el); });
+  } else { items.forEach(mostrar); }
+  setTimeout(function(){ items.forEach(mostrar); },2500);
+  if(reduce) items.forEach(mostrar);
+})();
+</script>
+</body>
+</html>

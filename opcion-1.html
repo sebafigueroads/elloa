@@ -1,0 +1,435 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Puerta del Desierto · Aeropuerto El Loa · Propuesta Digitals</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Dirección 01 para el sitio del Aeropuerto El Loa de Calama: marca cinematográfica anclada en Atacama, la cifra de 1.465.192 pasajeros y la ampliación del terminal.">
+<meta name="theme-color" content="#00182F">
+<link rel="icon" type="image/png" sizes="512x512" href="img/marca/favicon-512.png">
+<link rel="apple-touch-icon" href="img/marca/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Puerta del Desierto · Aeropuerto El Loa">
+<meta property="og:description" content="Dirección 01 propuesta por Digitals para el sitio del Aeropuerto El Loa de Calama.">
+<meta property="og:image" content="https://sebafigueroads.github.io/elloa/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#002C58; --deep:#00182F; --deeper:#000F1F; --red:#DA291C;
+  --terra:#B5654A; --terrad:#8A4429; --redt:#FF6E5F; --sand:#EFE7E0; --ink:#101418; --white:#fff;
+  --fd:"Archivo",system-ui,sans-serif; --fm:"JetBrains Mono",ui-monospace,monospace;
+  --g:clamp(20px,5vw,72px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--deep);color:var(--white);font-family:var(--fd);font-size:17px;line-height:1.55;font-weight:400;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,ol,figure{margin:0}
+ul{list-style:none;padding:0}
+.wrap{width:100%;max-width:1320px;margin:0 auto;padding-left:var(--g);padding-right:var(--g)}
+.mono{font-family:var(--fm);font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+/* ---------- barra ---------- */
+.bar{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(0,17,34,.86);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.14)}
+.bar__in{display:flex;align-items:center;gap:14px;min-height:58px}
+.bar__logo{height:30px;width:auto}
+.bar__tag{font-family:var(--fm);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.72);border-left:1px solid rgba(255,255,255,.24);padding-left:14px;line-height:1.3}
+.bar__back{margin-left:auto;font-family:var(--fm);font-size:11px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;color:#fff;border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:11px 16px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
+.bar__back:hover{background:var(--red);border-color:var(--red)}
+@media(max-width:640px){.bar__tag{display:none}}
+
+/* ---------- hero ---------- */
+.hero{position:relative;background:var(--deep);padding-top:58px;overflow:hidden}
+.hero__grid{display:grid;grid-template-columns:1fr;align-items:stretch}
+.hero__txt{position:relative;z-index:3;padding-top:clamp(46px,9vw,104px);padding-bottom:clamp(34px,5vw,72px)}
+.hero__kick{color:var(--redt);margin-bottom:clamp(20px,4vw,34px)}
+.hero__kick span{color:rgba(255,255,255,.6)}
+h1{font-size:clamp(2.6rem,9.6vw,9.4rem);line-height:.86;letter-spacing:-.045em;font-weight:800;font-stretch:104%;text-wrap:balance}
+h1 em{font-style:normal;color:var(--terra)}
+.hero__lead{margin-top:clamp(22px,3.4vw,34px);max-width:26ch;font-size:clamp(1.02rem,1.5vw,1.28rem);color:rgba(255,255,255,.82);line-height:1.5}
+.hero__data{margin-top:clamp(28px,4vw,44px);display:flex;flex-wrap:wrap;gap:0}
+.dato{padding:16px 26px 16px 0;margin-right:26px;border-right:1px solid rgba(255,255,255,.2)}
+.dato:last-child{border-right:0;margin-right:0}
+.dato b{display:block;font-family:var(--fm);font-weight:700;font-size:clamp(1.5rem,3.4vw,2.5rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums}
+.dato small{display:block;margin-top:9px;font-family:var(--fm);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.62)}
+.hero__ph{position:relative;min-height:52vw;background:#0a2038}
+.hero__ph img{position:absolute;inset:0;width:100%;height:100%;object-fit:cover;object-position:50% 42%}
+.hero__ph:after{content:"";position:absolute;inset:0;background:linear-gradient(180deg,rgba(0,24,47,.62) 0%,rgba(0,24,47,0) 34%,rgba(0,24,47,.28) 100%)}
+.estela{position:absolute;pointer-events:none;z-index:2;top:clamp(52px,7vw,74px);right:-6%;width:min(78%,760px);opacity:.5}
+@media(min-width:1000px){
+  .hero__grid{grid-template-columns:1.02fr .84fr;min-height:min(calc(100vh - 58px),880px)}
+  .hero__txt{display:flex;flex-direction:column;justify-content:center;padding-right:clamp(24px,3vw,56px);padding-bottom:clamp(60px,7vw,96px)}
+  .hero__ph{min-height:0}
+  .estela{top:clamp(30px,4vw,66px);right:26%;width:min(52%,620px);opacity:.42}
+}
+.scrollhint{display:none}
+@media(min-width:1000px){.scrollhint{display:block;position:absolute;left:var(--g);bottom:18px;z-index:4;font-family:var(--fm);font-size:10.5px;letter-spacing:1.6px;text-transform:uppercase;color:rgba(255,255,255,.62)}}
+
+/* ---------- marquesina ---------- */
+.mq{background:var(--red);color:#fff;overflow:hidden;border-top:1px solid rgba(255,255,255,.16)}
+.mq__t{display:flex;width:max-content;animation:slide 46s linear infinite}
+.mq__t>span{padding:15px 0;white-space:nowrap;font-family:var(--fm);font-size:12px;letter-spacing:1.6px;text-transform:uppercase;font-weight:700}
+.mq__t i{font-style:normal;opacity:.55;padding:0 20px}
+@keyframes slide{from{transform:translateX(0)}to{transform:translateX(-50%)}}
+
+/* ---------- capítulos ---------- */
+.cap{padding-top:clamp(72px,11vw,168px);padding-bottom:clamp(56px,8vw,120px);position:relative}
+.cap--sand{background:var(--sand);color:var(--ink)}
+.cap--navy{background:var(--navy)}
+.num{color:var(--redt);margin-bottom:20px}
+.cap--sand .num{color:var(--terrad)}
+h2{font-size:clamp(2.1rem,5.4vw,4.6rem);line-height:.93;letter-spacing:-.035em;font-weight:800;text-wrap:balance}
+.lead{margin-top:20px;font-size:clamp(1rem,1.35vw,1.2rem);line-height:1.6;max-width:56ch;color:rgba(255,255,255,.8)}
+.cap--sand .lead{color:#3c4650}
+.duo{display:grid;gap:clamp(30px,5vw,64px);grid-template-columns:1fr;align-items:center;margin-top:clamp(34px,5vw,64px)}
+@media(min-width:900px){.duo{grid-template-columns:1fr 1fr}.duo--r .duo__ph{order:2}}
+.duo__ph{overflow:hidden;border-radius:200px 24px 200px 24px}
+.duo--r .duo__ph{border-radius:24px 200px 24px 200px}
+@media(max-width:640px){.duo__ph,.duo--r .duo__ph{border-radius:80px 16px 80px 16px}}
+.duo__ph img{width:100%;max-height:620px;object-fit:cover}
+
+/* lista editorial con hairlines */
+.hl{margin-top:clamp(26px,4vw,44px);border-top:1px solid rgba(255,255,255,.2)}
+.cap--sand .hl{border-color:rgba(16,20,24,.16)}
+.hl li{display:flex;flex-wrap:wrap;gap:6px 20px;align-items:baseline;justify-content:space-between;padding:15px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.cap--sand .hl li{border-color:rgba(16,20,24,.16)}
+.hl li>span:first-child{font-family:var(--fm);font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.58)}
+.cap--sand .hl li>span:first-child{color:#5a646e}
+.hl li>span:last-child{font-size:clamp(1.02rem,1.7vw,1.35rem);font-weight:600;text-align:right}
+
+/* cifra gigante */
+.cifras{margin-top:clamp(36px,5vw,64px);display:grid;gap:clamp(18px,3vw,34px);grid-template-columns:1fr}
+@media(min-width:760px){.cifras{grid-template-columns:repeat(2,1fr)}}
+.cifra{border-top:2px solid var(--red);padding-top:18px}
+.cap--sand .cifra{border-color:var(--terra)}
+.cifra b{display:block;font-size:clamp(2.6rem,7.4vw,6.2rem);line-height:.88;letter-spacing:-.05em;font-weight:900;font-variant-numeric:tabular-nums}
+.cifra small{display:block;margin-top:12px;font-family:var(--fm);font-size:11px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.62);max-width:30ch}
+.cap--sand .cifra small{color:#5a646e}
+
+/* banda ancha */
+.banda{position:relative;overflow:hidden}
+.banda img{width:100%;height:clamp(230px,44vw,560px);object-fit:cover}
+
+/* niveles */
+.niv{display:grid;gap:clamp(26px,4vw,54px);grid-template-columns:1fr;margin-top:clamp(30px,4vw,56px)}
+@media(min-width:860px){.niv{grid-template-columns:1fr 1fr}}
+.niv h3{font-size:clamp(1.35rem,2.5vw,2.05rem);letter-spacing:-.02em;font-weight:800;line-height:1.05}
+.niv .mono{display:block;color:var(--terrad);margin-bottom:10px}
+.niv ul{margin-top:18px;border-top:1px solid rgba(16,20,24,.16)}
+.niv li{padding:12px 0;border-bottom:1px solid rgba(16,20,24,.16);display:flex;gap:14px;justify-content:space-between;align-items:baseline}
+.niv li i{font-style:normal;font-family:var(--fm);font-size:11px;letter-spacing:.8px;color:#5a646e;text-align:right;white-space:nowrap}
+
+/* lámina concesión */
+.lam{background:var(--navy);position:relative;overflow:hidden;padding-top:clamp(74px,10vw,150px);padding-bottom:clamp(60px,8vw,120px)}
+.wordmark{font-size:clamp(4.6rem,20vw,17rem);line-height:.76;letter-spacing:-.06em;font-weight:900;font-stretch:112%;color:transparent;-webkit-text-stroke:1.5px rgba(255,255,255,.36);margin-top:clamp(36px,5vw,70px)}
+.obras{margin-top:clamp(28px,4vw,48px);display:flex;flex-wrap:wrap;gap:10px}
+.obras span{font-family:var(--fm);font-size:11px;letter-spacing:.9px;text-transform:uppercase;border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:9px 15px;color:rgba(255,255,255,.88)}
+.cap--sand .obras span{border-color:rgba(16,20,24,.26);color:#2A3440}
+
+/* cierre */
+.fin{background:var(--deeper);padding-top:clamp(70px,9vw,132px);padding-bottom:clamp(48px,6vw,84px)}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(28px,4vw,44px)}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:15px;letter-spacing:.01em}
+.btn--red{background:var(--red);color:#fff}
+.btn--red:hover{background:#fff;color:var(--red)}
+.btn--gh{border:1px solid rgba(255,255,255,.4);color:#fff}
+.btn--gh:hover{border-color:#fff;background:rgba(255,255,255,.1)}
+.pie{margin-top:clamp(44px,6vw,72px);padding-top:26px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;gap:14px 26px;align-items:center;font-family:var(--fm);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.55)}
+.pie a{color:rgba(255,255,255,.8)}
+.nota{margin-top:22px;font-family:var(--fm);font-size:11px;line-height:1.7;letter-spacing:.4px;color:rgba(255,255,255,.5);max-width:70ch}
+
+/* reveal */
+html.js .rv{opacity:0;transform:translateY(20px)}
+html.js .rv.on{opacity:1;transform:none;transition:opacity .85s cubic-bezier(.2,.7,.3,1),transform .85s cubic-bezier(.2,.7,.3,1)}
+@media(prefers-reduced-motion:reduce){
+  html.js .rv,html.js .rv.on{opacity:1!important;transform:none!important;transition:none!important}
+  .mq__t{animation:none}
+  *{scroll-behavior:auto!important}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <img class="bar__logo" src="img/marca/logo-elloa-blanco-full.png" width="844" height="544" alt="Aeropuerto El Loa">
+    <span class="bar__tag">Dirección 01 · «Puerta del Desierto»</span>
+    <a class="bar__back" href="index.html">Las 3 direcciones</a>
+  </div>
+</header>
+
+<section class="hero">
+  <img class="estela" src="img/marca/estela.png" width="728" height="541" alt="" aria-hidden="true">
+  <div class="hero__grid">
+    <div class="wrap hero__txt">
+      <p class="mono hero__kick">SCCF <span>· Calama · Región de Antofagasta</span></p>
+      <!-- COPY PROPUESTO -->
+      <h1>La puerta<br>del <em>desierto</em></h1>
+      <p class="hero__lead">Aeropuerto El Loa, a 6 km de Calama. El mayor aeropuerto regional del país.</p>
+      <div class="hero__data">
+        <div class="dato"><b id="reloj">--:--:--</b><small>Hora de Chile · ahora</small></div>
+        <div class="dato"><b id="pax" data-final="1465192">1.465.192</b><small>Pasajeros embarcados en 2025</small></div>
+      </div>
+    </div>
+    <div class="hero__ph">
+      <img src="img/aerea-pista.jpg" width="854" height="1102" alt="Vista aérea del terminal del Aeropuerto El Loa, con la pista y la plataforma al fondo.">
+    </div>
+  </div>
+  <p class="scrollhint">Baje · el terminal abre 24 horas</p>
+</section>
+
+<div class="mq" aria-hidden="true">
+  <div class="mq__t">
+    <span>Santiago<i>·</i>Antofagasta<i>·</i>Concepción<i>·</i>La Serena<i>·</i>LATAM<i>·</i>JetSMART<i>·</i>SKY<i>·</i>Terminal 24 horas<i>·</i>3 puertas de embarque<i>·</i>2 cintas de equipaje<i>·</i></span>
+    <span>Santiago<i>·</i>Antofagasta<i>·</i>Concepción<i>·</i>La Serena<i>·</i>LATAM<i>·</i>JetSMART<i>·</i>SKY<i>·</i>Terminal 24 horas<i>·</i>3 puertas de embarque<i>·</i>2 cintas de equipaje<i>·</i></span>
+  </div>
+</div>
+
+<section class="cap cap--sand" id="lugar">
+  <div class="wrap">
+    <p class="mono num rv">01 · Dónde estamos</p>
+    <h2 class="rv">Seis kilómetros<br>de Calama.</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">El terminal se levanta sobre la pampa, en la Región de Antofagasta. Es la entrada aérea del norte y opera todos los días del año, a toda hora.</p>
+    <div class="duo">
+      <figure class="duo__ph rv"><img src="img/terminal-desierto.jpg" width="853" height="773" alt="El terminal del Aeropuerto El Loa visto desde el aire, rodeado por el desierto y con la torre de control a un costado."></figure>
+      <div class="rv">
+        <ul class="hl">
+          <li><span>Ubicación</span><span>Calama, Región de Antofagasta</span></li>
+          <li><span>Distancia a Calama</span><span>6 km</span></li>
+          <li><span>Código OACI</span><span>SCCF</span></li>
+          <li><span>Operación del terminal</span><span>24 horas, todos los días</span></li>
+          <li><span>Estacionamientos</span><span>24 horas, todo el año</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cap" id="edificio">
+  <div class="wrap">
+    <p class="mono num rv">02 · El edificio</p>
+    <h2 class="rv">Una cubierta<br>que ondula.</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">La techumbre de terracota sube y baja sobre la fachada de vidrio. Se ve desde la carretera antes que cualquier letrero, y es lo primero que un pasajero reconoce al volver.</p>
+    <div class="duo duo--r">
+      <figure class="duo__ph rv"><img src="img/fachada-onda.jpg" width="853" height="1102" alt="Fachada del terminal: la cubierta de terracota ondula sobre los pilares blancos y el muro cortina de vidrio."></figure>
+      <div class="rv">
+        <ul class="hl">
+          <li><span>Niveles</span><span>1° Hall Público · 2° Sala de Embarque</span></li>
+          <li><span>Puertas de embarque</span><span>01 · 02 · 03</span></li>
+          <li><span>Posiciones</span><span>1A · 1B · 2 · 3 · R4 remota</span></li>
+          <li><span>Cintas de equipaje</span><span>Cinta 1 · Cinta 2</span></li>
+          <li><span>Salón VIP</span><span>Global Lounge · 07:00 a 22:30</span></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="cap cap--sand" id="ampliacion">
+  <div class="wrap">
+    <p class="mono num rv">03 · La ampliación</p>
+    <h2 class="rv">De 9.763 m²<br>a 30.656 m².</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">La tercera concesión triplica la superficie del terminal de pasajeros. Las obras ya empezaron a notarse: en 2025 se habilitaron cerca de 300 m² más en la zona de embarque.</p>
+    <div class="cifras">
+      <div class="cifra rv"><b>30.656</b><small>Metros cuadrados aproximados del terminal proyectado</small></div>
+      <div class="cifra rv"><b>+400</b><small>Nuevos estacionamientos proyectados</small></div>
+      <div class="cifra rv"><b>+300</b><small>Metros cuadrados habilitados en 2025 en zona de embarque</small></div>
+      <div class="cifra rv"><b>9.763</b><small>Metros cuadrados del terminal actual</small></div>
+    </div>
+  </div>
+</section>
+
+<div class="banda rv"><img src="img/render-ampliacion.jpg" width="1920" height="754" alt="Imagen del proyecto de ampliación del terminal: la cubierta ondulada se extiende sobre una fachada de vidrio de doble altura."></div>
+
+<section class="cap cap--sand">
+  <div class="wrap">
+    <p class="mono num rv">03.1 · Alcance de obras</p>
+    <h2 class="rv">Lo que se construye.</h2>
+    <div class="obras rv">
+      <span>Ampliación del terminal de pasajeros</span>
+      <span>Nueva plataforma para aeronaves comerciales</span>
+      <span>Redistribución de estacionamientos</span>
+      <span>Central térmica</span>
+      <span>Sistema fotovoltaico</span>
+      <span>Nuevo rodaje y plataforma FACH</span>
+      <span>Centro de Aproximación</span>
+      <span>Cuartel AVSEC</span>
+      <span>Ampliación edificio SSEI</span>
+      <span>Edificio de transporte logístico</span>
+      <span>Señalética nueva completa</span>
+      <span>Paisajismo, riego y cerco de seguridad</span>
+      <span>Vialidad interior vehicular y peatonal</span>
+      <span>Ayudas visuales e instalaciones eléctricas</span>
+    </div>
+  </div>
+</section>
+
+<section class="cap" id="vuelos">
+  <div class="wrap">
+    <p class="mono num rv">04 · Quién vuela desde aquí</p>
+    <h2 class="rv">Tres líneas aéreas,<br>cuatro destinos.</h2>
+    <div class="duo">
+      <div class="rv">
+        <ul class="hl">
+          <li><span>Líneas aéreas</span><span>LATAM · JetSMART · SKY Airline</span></li>
+          <li><span>Destinos</span><span>Santiago</span></li>
+          <li><span></span><span>Antofagasta</span></li>
+          <li><span></span><span>Concepción</span></li>
+          <li><span></span><span>La Serena</span></li>
+        </ul>
+        <p class="nota">La información de cada vuelo la entrega la línea aérea correspondiente. El aeropuerto no se responsabiliza por cambios posteriores a su publicación.</p>
+      </div>
+      <figure class="duo__ph rv"><img src="img/embarque.jpg" width="851" height="1103" alt="Interior del terminal: pasajeros esperando junto al muro de vidrio, con el panel de salidas al fondo."></figure>
+    </div>
+  </div>
+</section>
+
+<section class="cap cap--sand" id="terminal">
+  <div class="wrap">
+    <p class="mono num rv">05 · El terminal, nivel por nivel</p>
+    <h2 class="rv">Dos pisos.<br>Todo a la vista.</h2>
+    <div class="niv">
+      <div class="rv">
+        <span class="mono">1° Nivel</span>
+        <h3>Hall público, check-in y llegadas</h3>
+        <ul>
+          <li><span>Cruz Verde</span><i>Locales 101 y 102</i></li>
+          <li><span>Sabores del Desierto</span><i>Local 103</i></li>
+          <li><span>D'gustty</span><i>Local 105</i></li>
+          <li><span>Rent a car</span><i>8 empresas · mesones 1 a 11</i></li>
+          <li><span>Transfer</span><i>Altiplánico · Pampa · Transvip</i></li>
+          <li><span>Mesón de informaciones</span><i>Pago de estacionamiento</i></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <span class="mono">2° Nivel</span>
+        <h3>Sala de embarque</h3>
+        <ul>
+          <li><span>OKRE Restaurant</span><i>Sala de embarque</i></li>
+          <li><span>Global Lounge</span><i>07:00 a 22:30</i></li>
+          <li><span>Brittshop</span><i>Local 203</i></li>
+          <li><span>Piedras Australes</span><i>Locales 204 · 209 · 210</i></li>
+          <li><span>Maxi</span><i>Local 207</i></li>
+          <li><span>Sunglass Hut</span><i>Local 211</i></li>
+          <li><span>D'gustty</span><i>Local 206</i></li>
+          <li><span>JPT</span><i>Sala de embarque</i></li>
+        </ul>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="lam" id="concesion">
+  <div class="wrap">
+    <p class="mono num rv">06 · La concesión</p>
+    <h2 class="rv">Veintiséis años<br>por delante.</h2>
+    <div class="cifras">
+      <div class="cifra rv"><b>312</b><small>Meses de plazo de concesión</small></div>
+      <div class="cifra rv"><b>80/20</b><small>Sacyr y AGUNSA en la sociedad concesionaria</small></div>
+      <div class="cifra rv"><b>2023</b><small>Inicio de explotación: 1 de octubre</small></div>
+      <div class="cifra rv"><b>1.033</b><small>MWh de energía renovable certificada, sobre el 50% del consumo eléctrico 2025</small></div>
+    </div>
+    <ul class="hl rv">
+      <li><span>Decreto</span><span>DS MOP N°151 · 1 de agosto de 2023</span></li>
+      <li><span>Sociedad</span><span>Sociedad Concesionaria Aeropuerto El Loa S.A.</span></li>
+      <li><span>Programa</span><span>Huella Chile</span></li>
+    </ul>
+    <p class="wordmark rv" aria-hidden="true">EL LOA</p>
+  </div>
+</section>
+
+<section class="fin">
+  <div class="wrap">
+    <p class="mono num rv">07 · Contacto</p>
+    <h2 class="rv">Hablemos<br>de su viaje.</h2>
+    <div class="cta rv">
+      <a class="btn btn--red" href="tel:+56958738669">Llamar +56 9 5873 8669</a>
+      <a class="btn btn--gh" href="tel:+56552344897">Informaciones (55) 234 4897</a>
+      <a class="btn btn--gh" href="mailto:atencionapublico@aeropuertoelloa.cl">atencionapublico@aeropuertoelloa.cl</a>
+    </div>
+    <p class="nota">Terminal operativo 24 horas del día. Reclamos formales ante la DGAC en <a href="https://www.dgac.gob.cl/oirs" rel="noopener">dgac.gob.cl/oirs</a>. Derechos del pasajero en <a href="https://derechosdelpasajero.jac.gob.cl" rel="noopener">derechosdelpasajero.jac.gob.cl</a>.</p>
+    <div class="pie">
+      <span>Propuesta Digitals · Dirección 01</span>
+      <a href="opcion-2.html">Ver «Tablero»</a>
+      <a href="opcion-3.html">Ver «Llegar y Salir»</a>
+      <a href="index.html">Volver al índice</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var d=document.documentElement; d.classList.add('js');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* reloj real de Chile */
+  var rel=document.getElementById('reloj');
+  if(rel){
+    var fmt;
+    try{ fmt=new Intl.DateTimeFormat('es-CL',{timeZone:'America/Santiago',hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false}); }catch(e){ fmt=null; }
+    var tick=function(){
+      var t;
+      if(fmt){ t=fmt.format(new Date()).replace(/\./g,''); }
+      else { var n=new Date(); t=('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2)+':'+('0'+n.getSeconds()).slice(-2); }
+      rel.textContent=t;
+    };
+    tick(); setInterval(tick,1000);
+  }
+
+  /* contador de pasajeros */
+  var pax=document.getElementById('pax');
+  var miles=function(n){ return String(n).replace(/\B(?=(\d{3})+(?!\d))/g,'.'); };
+  var corre=function(el){
+    var fin=parseInt(el.getAttribute('data-final'),10)||0;
+    if(reduce){ el.textContent=miles(fin); return; }
+    var t0=null, dur=2200;
+    var paso=function(ts){
+      if(t0===null) t0=ts;
+      var p=Math.min(1,(ts-t0)/dur), e=1-Math.pow(1-p,3);
+      el.textContent=miles(Math.round(fin*e));
+      if(p<1) requestAnimationFrame(paso);
+    };
+    requestAnimationFrame(paso);
+  };
+
+  /* reveal */
+  var items=[].slice.call(document.querySelectorAll('.rv'));
+  var mostrar=function(el){ el.classList.add('on'); };
+  var contado=false;
+  var arrancaPax=function(){ if(!contado&&pax){ contado=true; corre(pax); } };
+
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){
+        if(en.isIntersecting){ mostrar(en.target); io.unobserve(en.target); }
+      });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    items.forEach(function(el){ io.observe(el); });
+  } else {
+    items.forEach(mostrar);
+  }
+  setTimeout(function(){ items.forEach(mostrar); },2500);
+  if(pax){
+    if('IntersectionObserver' in window){
+      var io2=new IntersectionObserver(function(es){
+        es.forEach(function(en){ if(en.isIntersecting){ arrancaPax(); io2.unobserve(en.target); } });
+      },{threshold:.3});
+      io2.observe(pax);
+    } else { arrancaPax(); }
+    setTimeout(arrancaPax,1200);
+  }
+})();
+</script>
+</body>
+</html>

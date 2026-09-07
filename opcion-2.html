@@ -1,0 +1,528 @@
+<!doctype html>
+<html lang="es">
+<head>
+<meta charset="utf-8">
+<meta name="viewport" content="width=device-width,initial-scale=1">
+<title>Tablero · Aeropuerto El Loa · Propuesta Digitals</title>
+<meta name="robots" content="noindex,nofollow">
+<meta name="description" content="Dirección 02 para el sitio del Aeropuerto El Loa: el tablero de llegadas y salidas como protagonista, con filtro por aerolínea, buscador y hora de Chile en vivo.">
+<meta name="theme-color" content="#00264C">
+<link rel="icon" type="image/png" sizes="512x512" href="img/marca/favicon-512.png">
+<link rel="apple-touch-icon" href="img/marca/favicon-180.png">
+<meta property="og:type" content="website">
+<meta property="og:title" content="Tablero · Aeropuerto El Loa">
+<meta property="og:description" content="Dirección 02 propuesta por Digitals para el sitio del Aeropuerto El Loa de Calama.">
+<meta property="og:image" content="https://sebafigueroads.github.io/elloa/img/og.jpg">
+<meta property="og:image:width" content="1200"><meta property="og:image:height" content="630">
+<meta name="twitter:card" content="summary_large_image">
+<link rel="preconnect" href="https://fonts.googleapis.com">
+<link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+<link href="https://fonts.googleapis.com/css2?family=Archivo:wdth,wght@62..125,400..900&family=JetBrains+Mono:wght@400;700&display=swap" rel="stylesheet">
+<style>
+:root{
+  --navy:#002C58; --deep:#00264C; --night:#001C3A; --red:#DA291C; --redt:#FF6E5F;
+  --paper:#FFFFFF; --line:#DDE3EA; --mute:#5A646E; --soft:#E8EEF5; --ink:#0A1A2B;
+  --fd:"Archivo",system-ui,sans-serif; --fm:"JetBrains Mono",ui-monospace,monospace;
+  --g:clamp(18px,4.6vw,68px);
+}
+*{box-sizing:border-box}
+html{-webkit-text-size-adjust:100%}
+body{margin:0;background:var(--deep);color:#fff;font-family:var(--fd);font-size:17px;line-height:1.55;-webkit-font-smoothing:antialiased}
+img{max-width:100%;display:block;height:auto}
+a{color:inherit}
+h1,h2,h3,p,ul,figure{margin:0}
+ul{list-style:none;padding:0}
+button,input{font:inherit;color:inherit}
+.wrap{width:100%;max-width:1360px;margin:0 auto;padding-left:var(--g);padding-right:var(--g)}
+.mono{font-family:var(--fm);font-size:11.5px;letter-spacing:1.4px;text-transform:uppercase;font-weight:700}
+.sr{position:absolute;width:1px;height:1px;overflow:hidden;clip:rect(0 0 0 0);white-space:nowrap}
+
+.bar{position:fixed;top:0;left:0;right:0;z-index:60;background:rgba(0,28,58,.9);backdrop-filter:blur(10px);border-bottom:1px solid rgba(255,255,255,.15)}
+.bar__in{display:flex;align-items:center;gap:14px;min-height:58px}
+.bar__logo{height:30px;width:auto}
+.bar__tag{font-family:var(--fm);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.72);border-left:1px solid rgba(255,255,255,.24);padding-left:14px;line-height:1.3}
+.bar__back{margin-left:auto;font-family:var(--fm);font-size:11px;letter-spacing:1px;text-transform:uppercase;text-decoration:none;border:1px solid rgba(255,255,255,.34);border-radius:999px;padding:11px 16px;min-height:44px;display:inline-flex;align-items:center;white-space:nowrap}
+.bar__back:hover{background:var(--red);border-color:var(--red)}
+@media(max-width:640px){.bar__tag{display:none}}
+
+/* hero */
+.hero{padding-top:calc(58px + clamp(38px,6vw,86px));padding-bottom:clamp(26px,4vw,44px);position:relative;overflow:hidden}
+.hero__kick{color:var(--redt);margin-bottom:clamp(16px,3vw,26px)}
+.hero__kick span{color:rgba(255,255,255,.62)}
+h1{font-size:clamp(2.6rem,9.6vw,9.4rem);line-height:.84;letter-spacing:-.05em;font-weight:900;font-stretch:96%}
+.hero__row{display:grid;gap:clamp(20px,3vw,44px);grid-template-columns:1fr;align-items:end;margin-top:clamp(18px,3vw,30px)}
+@media(min-width:900px){.hero__row{grid-template-columns:1fr auto}}
+.hero__lead{font-size:clamp(1rem,1.4vw,1.22rem);color:rgba(255,255,255,.82);max-width:44ch}
+.wclock{display:flex;gap:26px;flex-wrap:wrap}
+.wclock div{border-left:2px solid var(--red);padding-left:14px}
+.wclock b{display:block;font-family:var(--fm);font-weight:700;font-size:clamp(1.7rem,4.2vw,2.9rem);line-height:1;letter-spacing:-.02em;font-variant-numeric:tabular-nums}
+.wclock small{display:block;margin-top:8px;font-family:var(--fm);font-size:10.5px;letter-spacing:1.3px;text-transform:uppercase;color:rgba(255,255,255,.62)}
+
+/* tablero */
+.board{background:var(--paper);color:var(--ink);border-radius:34px 34px 0 0;margin-top:clamp(26px,4vw,48px);overflow:hidden}
+@media(min-width:900px){.board{border-radius:60px 60px 0 0}}
+.board__top{padding:clamp(22px,3.2vw,34px) 0 0}
+.demo{display:inline-flex;align-items:center;gap:9px;background:#FFF0D6;color:#6B4A00;border:1px solid #E7C98A;border-radius:999px;padding:8px 14px;font-family:var(--fm);font-size:10.5px;letter-spacing:1.1px;text-transform:uppercase;font-weight:700}
+.demo b{width:7px;height:7px;border-radius:50%;background:var(--red);display:block}
+.tabs{display:flex;gap:8px;margin-top:22px;border-bottom:2px solid var(--line);flex-wrap:wrap}
+.tab{appearance:none;background:none;border:0;border-bottom:3px solid transparent;margin-bottom:-2px;padding:12px 4px 14px;min-height:48px;cursor:pointer;font-weight:800;font-size:clamp(1.25rem,3vw,2rem);letter-spacing:-.02em;color:var(--mute);margin-right:22px}
+.tab[aria-selected="true"]{color:var(--navy);border-bottom-color:var(--red)}
+.tools{display:flex;flex-wrap:wrap;gap:10px;align-items:center;padding:20px 0 6px}
+.chips{display:flex;gap:8px;flex-wrap:wrap}
+.chip{appearance:none;cursor:pointer;background:#fff;border:1px solid var(--line);color:var(--mute);border-radius:999px;padding:11px 16px;min-height:44px;font-family:var(--fm);font-size:11px;letter-spacing:1px;text-transform:uppercase;font-weight:700}
+.chip[aria-pressed="true"]{background:var(--navy);border-color:var(--navy);color:#fff}
+.search{position:relative;margin-left:auto;flex:1 1 240px;max-width:360px}
+.search input{width:100%;min-height:46px;border:1px solid var(--line);border-radius:999px;padding:11px 18px;background:#fff;font-size:15px}
+.search input:focus{outline:3px solid rgba(0,44,88,.35);outline-offset:1px;border-color:var(--navy)}
+.count{padding:14px 0 6px;font-family:var(--fm);font-size:11px;letter-spacing:1.1px;text-transform:uppercase;color:var(--mute)}
+
+.head{display:none}
+@media(min-width:820px){
+  .head{display:grid;grid-template-columns:120px 1fr auto;column-gap:22px;padding:12px 0;border-top:2px solid var(--navy);border-bottom:1px solid var(--line)}
+  .head span{font-family:var(--fm);font-size:10.5px;letter-spacing:1.2px;text-transform:uppercase;color:var(--mute);font-weight:700}
+  .head span:last-child{text-align:right}
+}
+.filas{padding-bottom:clamp(30px,4vw,56px)}
+.fila{display:grid;grid-template-columns:minmax(70px,auto) 1fr;column-gap:18px;row-gap:9px;padding:17px 0;border-bottom:1px solid var(--line);align-items:start}
+.fila__h{grid-column:1;grid-row:1/span 2;font-family:var(--fm);font-weight:700;font-size:clamp(1.45rem,4.4vw,1.85rem);line-height:1;letter-spacing:-.03em;font-variant-numeric:tabular-nums;color:var(--navy)}
+.fila__h i{display:block;font-style:normal;font-size:10px;letter-spacing:1px;color:var(--mute);margin-top:8px;font-weight:400}
+.fila__m{grid-column:2;grid-row:1;min-width:0}
+.fila__m b{display:block;font-size:clamp(1.08rem,2.6vw,1.42rem);font-weight:800;letter-spacing:-.02em;line-height:1.15}
+.fila__m span{display:block;margin-top:5px;font-family:var(--fm);font-size:11px;letter-spacing:.9px;color:var(--mute)}
+.fila__e{grid-column:2;grid-row:2;display:flex;gap:9px;align-items:center;flex-wrap:wrap}
+@media(min-width:820px){
+  .fila{grid-template-columns:120px 1fr auto;align-items:center;padding:19px 0}
+  .fila__h{grid-row:1}
+  .fila__e{grid-column:3;grid-row:1;justify-content:flex-end}
+}
+.pill{font-family:var(--fm);font-size:10.5px;letter-spacing:1px;text-transform:uppercase;font-weight:700;border-radius:999px;padding:7px 13px;white-space:nowrap}
+.pill--prog{background:var(--soft);color:var(--navy)}
+.pill--last{background:var(--red);color:#fff}
+.pill--done{background:#EAECEE;color:#4A545E}
+.gate{font-family:var(--fm);font-size:11px;letter-spacing:1px;font-weight:700;border:1.5px solid var(--navy);border-radius:8px;padding:6px 11px;color:var(--navy);white-space:nowrap}
+.vacio{padding:44px 0;color:var(--mute);font-size:16px}
+.disc{padding:0 0 clamp(30px,4vw,50px);font-family:var(--fm);font-size:11px;line-height:1.75;letter-spacing:.4px;color:var(--mute);max-width:78ch}
+
+/* secciones oscuras */
+.sec{padding-top:clamp(66px,9vw,140px);padding-bottom:clamp(52px,7vw,110px)}
+.sec--light{background:#F3F5F8;color:var(--ink)}
+.num{color:var(--redt);margin-bottom:18px}
+.sec--light .num{color:#A31E14}
+h2{font-size:clamp(2rem,5.2vw,4.3rem);line-height:.94;letter-spacing:-.035em;font-weight:900;text-wrap:balance}
+.lead{margin-top:18px;font-size:clamp(1rem,1.3vw,1.16rem);line-height:1.6;max-width:56ch;color:rgba(255,255,255,.8)}
+.sec--light .lead{color:#3C4650}
+.duo{display:grid;gap:clamp(28px,4.6vw,60px);grid-template-columns:1fr;align-items:center;margin-top:clamp(30px,4.4vw,58px)}
+@media(min-width:900px){.duo{grid-template-columns:1fr 1fr}.duo--r .duo__ph{order:2}}
+.duo__ph{overflow:hidden;border-radius:220px 20px 220px 20px}
+.duo__ph img{width:100%;max-height:620px;object-fit:cover}
+.duo--r .duo__ph{border-radius:20px 220px 20px 220px}
+@media(max-width:640px){.duo__ph,.duo--r .duo__ph{border-radius:76px 14px 76px 14px}}
+.hl{margin-top:clamp(22px,3.4vw,38px);border-top:1px solid rgba(255,255,255,.2)}
+.sec--light .hl{border-color:#D5DBE2}
+.hl li{display:flex;flex-wrap:wrap;gap:5px 18px;align-items:baseline;justify-content:space-between;padding:14px 0;border-bottom:1px solid rgba(255,255,255,.2)}
+.sec--light .hl li{border-color:#D5DBE2}
+.hl li>span:first-child{font-family:var(--fm);font-size:11px;letter-spacing:1.2px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.sec--light .hl li>span:first-child{color:var(--mute)}
+.hl li>span:last-child{font-size:clamp(1rem,1.6vw,1.28rem);font-weight:700;text-align:right}
+.hl li>span:last-child em{font-style:normal;font-family:var(--fm);font-weight:700;font-variant-numeric:tabular-nums}
+.tarifa{display:grid;gap:clamp(26px,4vw,52px);grid-template-columns:1fr;margin-top:clamp(26px,4vw,48px)}
+@media(min-width:880px){.tarifa{grid-template-columns:1fr 1fr}}
+.tarifa h3{font-size:clamp(1.3rem,2.4vw,1.95rem);font-weight:900;letter-spacing:-.02em}
+.tarifa .mono{display:block;color:#A31E14;margin-bottom:9px}
+.banda{overflow:hidden}
+.banda img{width:100%;height:clamp(210px,38vw,470px);object-fit:cover;object-position:50% 55%}
+.niv{display:grid;gap:clamp(24px,3.6vw,50px);grid-template-columns:1fr;margin-top:clamp(28px,4vw,52px)}
+@media(min-width:860px){.niv{grid-template-columns:1fr 1fr}}
+.niv h3{font-size:clamp(1.3rem,2.4vw,1.95rem);font-weight:900;letter-spacing:-.02em;line-height:1.05}
+.niv .mono{display:block;color:var(--redt);margin-bottom:9px}
+.niv ul{margin-top:16px;border-top:1px solid rgba(255,255,255,.2)}
+.niv li{padding:12px 0;border-bottom:1px solid rgba(255,255,255,.2);display:flex;gap:14px;justify-content:space-between;align-items:baseline}
+.niv li i{font-style:normal;font-family:var(--fm);font-size:11px;letter-spacing:.8px;color:rgba(255,255,255,.62);text-align:right;white-space:nowrap}
+.cta{display:flex;flex-wrap:wrap;gap:12px;margin-top:clamp(26px,4vw,42px)}
+.btn{display:inline-flex;align-items:center;min-height:52px;padding:14px 26px;border-radius:999px;text-decoration:none;font-weight:700;font-size:15px}
+.btn--red{background:var(--red);color:#fff}
+.btn--red:hover{background:#fff;color:var(--red)}
+.btn--gh{border:1px solid rgba(255,255,255,.4)}
+.btn--gh:hover{background:rgba(255,255,255,.1);border-color:#fff}
+.fin{background:var(--night);padding-top:clamp(66px,8vw,124px);padding-bottom:clamp(46px,6vw,80px)}
+.nota{margin-top:20px;font-family:var(--fm);font-size:11px;line-height:1.75;letter-spacing:.4px;color:rgba(255,255,255,.55);max-width:74ch}
+.pie{margin-top:clamp(40px,5vw,68px);padding-top:24px;border-top:1px solid rgba(255,255,255,.18);display:flex;flex-wrap:wrap;gap:13px 26px;align-items:center;font-family:var(--fm);font-size:11px;letter-spacing:1px;text-transform:uppercase;color:rgba(255,255,255,.6)}
+.pie a{color:rgba(255,255,255,.85)}
+:focus-visible{outline:3px solid var(--redt);outline-offset:2px}
+
+html.js .rv{opacity:0;transform:translateY(18px)}
+html.js .rv.on{opacity:1;transform:none;transition:opacity .8s cubic-bezier(.2,.7,.3,1),transform .8s cubic-bezier(.2,.7,.3,1)}
+@media(prefers-reduced-motion:reduce){
+  html.js .rv,html.js .rv.on{opacity:1!important;transform:none!important;transition:none!important}
+  *{scroll-behavior:auto!important}
+}
+</style>
+<noscript><style>.rv{opacity:1!important;transform:none!important}</style></noscript>
+</head>
+<body>
+
+<header class="bar">
+  <div class="wrap bar__in">
+    <img class="bar__logo" src="img/marca/logo-elloa-blanco-full.png" width="844" height="544" alt="Aeropuerto El Loa">
+    <span class="bar__tag">Dirección 02 · «Tablero»</span>
+    <a class="bar__back" href="index.html">Las 3 direcciones</a>
+  </div>
+</header>
+
+<section class="hero">
+  <div class="wrap">
+    <p class="mono hero__kick">Aeropuerto El Loa <span>· SCCF · Calama · Terminal 24 horas</span></p>
+    <h1>Tablero</h1>
+    <div class="hero__row">
+      <!-- COPY PROPUESTO -->
+      <p class="hero__lead">Primero el vuelo. Llegadas y salidas grandes, legibles y filtrables, con la hora de Chile corriendo arriba. Todo lo demás viene después.</p>
+      <div class="wclock">
+        <div><b id="reloj">--:--:--</b><small>Hora de Chile</small></div>
+        <div><b id="fecha">--</b><small>Hoy en Calama</small></div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="board" id="tablero">
+  <div class="wrap board__top">
+    <p class="demo"><b></b> Datos de demostración · no son vuelos en operación</p>
+    <div class="tabs" role="tablist" aria-label="Llegadas y salidas">
+      <button class="tab" id="t-sal" role="tab" aria-selected="true" aria-controls="panel" data-modo="sal" type="button">Salidas</button>
+      <button class="tab" id="t-lle" role="tab" aria-selected="false" aria-controls="panel" data-modo="lle" type="button">Llegadas</button>
+    </div>
+    <div class="tools">
+      <div class="chips" role="group" aria-label="Filtrar por línea aérea">
+        <button class="chip" type="button" data-aero="" aria-pressed="true">Todas</button>
+        <button class="chip" type="button" data-aero="LATAM" aria-pressed="false">LATAM</button>
+        <button class="chip" type="button" data-aero="JetSMART" aria-pressed="false">JetSMART</button>
+        <button class="chip" type="button" data-aero="SKY" aria-pressed="false">SKY</button>
+      </div>
+      <div class="search">
+        <label class="sr" for="q">Buscar por número de vuelo, destino, origen o puerta</label>
+        <input id="q" type="search" placeholder="Vuelo, destino o puerta" autocomplete="off">
+      </div>
+    </div>
+    <p class="count" id="cuenta" aria-live="polite">—</p>
+    <div class="head" aria-hidden="true"><span>Hora</span><span id="colb">Destino y vuelo</span><span id="colc">Situación y puerta</span></div>
+  </div>
+  <div class="wrap">
+    <div class="filas" id="panel" role="tabpanel" aria-labelledby="t-sal"></div>
+    <p class="disc">La información de cada vuelo la entrega la línea aérea correspondiente; el aeropuerto no se responsabiliza por cambios posteriores a su publicación. En esta propuesta las filas son una demostración construida sobre la estructura real del tablero: hora, número de vuelo, línea aérea, destino u origen, situación y puerta o cinta.</p>
+  </div>
+</section>
+
+<section class="sec" id="estacionamiento">
+  <div class="wrap">
+    <p class="mono num rv">01 · Estacionamiento</p>
+    <h2 class="rv">Cincuenta y un pesos<br>por minuto.</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">Los primeros diez minutos no se cobran. Y por mucho que deje el auto, en un día no le cobran más que el equivalente a seis horas.</p>
+    <div class="duo duo--r">
+      <figure class="duo__ph rv"><img src="img/estacionamientos.jpg" width="804" height="455" alt="Explanada de estacionamientos del aeropuerto frente al terminal, con la torre de control y el desierto al fondo."></figure>
+      <div class="rv">
+        <ul class="hl">
+          <li><span>Vehículos en general</span><span><em>$51</em> / minuto</span></li>
+          <li><span>Gratuidad inicial</span><span><em>10</em> minutos</span></li>
+          <li><span>Tope por día</span><span>Máximo equivalente a <em>6</em> horas</span></li>
+          <li><span>Convenio corporativo</span><span><em>8</em> UF al mes</span></li>
+          <li><span>Convenio vehículos pesados y buses</span><span><em>16</em> UF al mes</span></li>
+          <li><span>Disponibilidad</span><span>24 horas, todo el año</span></li>
+        </ul>
+        <p class="nota">Tarifas con IVA incluido. El pago se realiza en el mesón de informaciones dentro del terminal o en el cajero automático del estacionamiento. Si pierde el ticket, consulte en el mesón de informaciones.</p>
+      </div>
+    </div>
+  </div>
+</section>
+
+<section class="sec sec--light" id="transporte">
+  <div class="wrap">
+    <p class="mono num rv">02 · Cómo llegar y cómo salir</p>
+    <h2 class="rv">A Calama<br>y a San Pedro.</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">El terminal está a 6 km de Calama. Los taxis y transfers autorizados atienden en el primer nivel, con tarifas publicadas por tramo. El taxi se cobra por vehículo; el transfer, por persona.</p>
+    <div class="tarifa">
+      <div class="rv">
+        <span class="mono">Taxi · por vehículo</span>
+        <h3>Tarifas por tramo</h3>
+        <ul class="hl">
+          <li><span>Avda. Jorge Alessandri · sector Peuco</span><span><em>$8.000</em></span></li>
+          <li><span>Avda. Chorrillo · Avda. Grecia · Sotomayor</span><span><em>$10.000</em></span></li>
+          <li><span>Entrada norte de la ciudad · Puerto Seco</span><span><em>$15.000</em></span></li>
+          <li><span>Sierra Gorda</span><span><em>$57.000</em></span></li>
+          <li><span>San Pedro de Atacama</span><span><em>$75.000</em></span></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <span class="mono">Transfer · por persona</span>
+        <h3>Tarifas por tramo</h3>
+        <ul class="hl">
+          <li><span>Avda. Jorge Alessandri · sector Peuco</span><span><em>$7.000</em></span></li>
+          <li><span>Avda. Chorrillo · Avda. Grecia · Sotomayor</span><span><em>$8.000</em></span></li>
+          <li><span>Entrada norte de la ciudad · Puerto Seco</span><span><em>$10.000</em></span></li>
+          <li><span>Sierra Gorda</span><span><em>$35.300</em></span></li>
+          <li><span>San Pedro de Atacama</span><span><em>$17.900</em></span></li>
+        </ul>
+      </div>
+    </div>
+    <p class="nota" style="color:var(--mute)">Tarifas vigentes desde el 1 de abril de 2026. Transfer Altiplánico, Transfer Pampa y Transvip atienden en mesones del primer nivel. Ocho empresas de rent a car operan en el hall público.</p>
+  </div>
+</section>
+
+<div class="banda rv"><img src="img/frontis-torre.jpg" width="851" height="560" alt="Frontis del terminal del Aeropuerto El Loa con la torre de control a la derecha y la pista al fondo."></div>
+
+<section class="sec" id="servicios">
+  <div class="wrap">
+    <p class="mono num rv">03 · Servicios del terminal</p>
+    <h2 class="rv">Qué hay<br>en cada nivel.</h2>
+    <div class="niv">
+      <div class="rv">
+        <span class="mono">1° Nivel · Hall público</span>
+        <h3>Check-in, llegadas y equipaje</h3>
+        <ul>
+          <li><span>Cruz Verde</span><i>Locales 101 y 102</i></li>
+          <li><span>Sabores del Desierto</span><i>Local 103</i></li>
+          <li><span>D'gustty</span><i>Local 105</i></li>
+          <li><span>Rent a car</span><i>8 empresas</i></li>
+          <li><span>Transfer</span><i>3 empresas</i></li>
+          <li><span>Mesón de informaciones</span><i>Pago de estacionamiento</i></li>
+          <li><span>Cintas de equipaje</span><i>Cinta 1 · Cinta 2</i></li>
+        </ul>
+      </div>
+      <div class="rv">
+        <span class="mono">2° Nivel · Sala de embarque</span>
+        <h3>Después del control</h3>
+        <ul>
+          <li><span>OKRE Restaurant</span><i>Sala de embarque</i></li>
+          <li><span>Global Lounge</span><i>07:00 a 22:30</i></li>
+          <li><span>Brittshop</span><i>Local 203</i></li>
+          <li><span>Piedras Australes</span><i>Locales 204 · 209 · 210</i></li>
+          <li><span>Maxi</span><i>Local 207</i></li>
+          <li><span>Sunglass Hut</span><i>Local 211</i></li>
+          <li><span>D'gustty</span><i>Local 206</i></li>
+          <li><span>Puertas de embarque</span><i>01 · 02 · 03</i></li>
+        </ul>
+      </div>
+    </div>
+    <p class="nota">También hay Wi-Fi gratuito para pasajeros, cajeros automáticos, teléfonos públicos y un centro de información general y turismo. Patagonia Chocolates y JPT operan en el terminal.</p>
+  </div>
+</section>
+
+<section class="sec sec--light" id="pmr">
+  <div class="wrap">
+    <p class="mono num rv">04 · Movilidad reducida</p>
+    <h2 class="rv">Se pide con<br>48 horas.</h2>
+    <!-- COPY PROPUESTO -->
+    <p class="lead rv">La asistencia para pasajeros con movilidad reducida se solicita con al menos 48 horas de anticipación y el punto de encuentro se acuerda antes de llegar.</p>
+    <ul class="hl rv">
+      <li><span>Anticipación de la solicitud</span><span><em>48</em> horas</span></li>
+      <li><span>Puntos de encuentro</span><span>Acceso al terminal · sector estacionamiento · mesón de informaciones · sala de embarque</span></li>
+      <li><span>Embarque</span><span>Asistente esperando o llegando en máximo <em>5</em> minutos</span></li>
+      <li><span>Desembarque</span><span>Espera de hasta <em>10</em> minutos</span></li>
+    </ul>
+    <p class="nota" style="color:var(--mute)">Si el pasajero se atrasa más de 5 minutos en el embarque o más de 15 minutos en el desembarque, debe dirigirse a los mesones de informaciones. El terminal cuenta con infraestructura para personas con discapacidad y estacionamientos accesibles.</p>
+  </div>
+</section>
+
+<section class="fin">
+  <div class="wrap">
+    <p class="mono num rv">05 · Contacto</p>
+    <h2 class="rv">Consultas,<br>a toda hora.</h2>
+    <div class="cta rv">
+      <a class="btn btn--red" href="tel:+56958738669">Llamar +56 9 5873 8669</a>
+      <a class="btn btn--gh" href="tel:+56552344897">Informaciones (55) 234 4897</a>
+      <a class="btn btn--gh" href="mailto:atencionapublico@aeropuertoelloa.cl">Escribir a atención a público</a>
+    </div>
+    <p class="nota">Terminal operativo 24 horas del día. Reclamos formales ante la DGAC en <a href="https://www.dgac.gob.cl/oirs" rel="noopener">dgac.gob.cl/oirs</a>. Derechos del pasajero en <a href="https://derechosdelpasajero.jac.gob.cl" rel="noopener">derechosdelpasajero.jac.gob.cl</a>.</p>
+    <div class="pie">
+      <span>Propuesta Digitals · Dirección 02</span>
+      <a href="opcion-1.html">Ver «Puerta del Desierto»</a>
+      <a href="opcion-3.html">Ver «Llegar y Salir»</a>
+      <a href="index.html">Volver al índice</a>
+    </div>
+  </div>
+</section>
+
+<script>
+(function(){
+  var d=document.documentElement; d.classList.add('js');
+  var reduce=window.matchMedia&&window.matchMedia('(prefers-reduced-motion:reduce)').matches;
+
+  /* --- hora de Chile --- */
+  var rel=document.getElementById('reloj'), fec=document.getElementById('fecha');
+  var TZ='America/Santiago';
+  function fmtSeguro(op){ try{ return new Intl.DateTimeFormat('es-CL',op); }catch(e){ return null; } }
+  var fH=fmtSeguro({timeZone:TZ,hour:'2-digit',minute:'2-digit',second:'2-digit',hour12:false});
+  var fD=fmtSeguro({timeZone:TZ,weekday:'long',day:'numeric',month:'long'});
+  var fP=fmtSeguro({timeZone:TZ,hour:'2-digit',minute:'2-digit',hour12:false});
+  function horaChile(){
+    var n=new Date();
+    if(fP){ var t=fP.format(n).replace(/\./g,''); var p=t.split(':'); return parseInt(p[0],10)*60+parseInt(p[1],10); }
+    return n.getHours()*60+n.getMinutes();
+  }
+  function tick(){
+    var n=new Date();
+    if(rel) rel.textContent = fH ? fH.format(n).replace(/\./g,'') : ('0'+n.getHours()).slice(-2)+':'+('0'+n.getMinutes()).slice(-2)+':'+('0'+n.getSeconds()).slice(-2);
+  }
+  tick(); setInterval(tick,1000);
+  if(fec){
+    var txt = fD ? fD.format(new Date()) : new Date().toLocaleDateString();
+    fec.textContent = txt.charAt(0).toUpperCase()+txt.slice(1);
+  }
+
+  /* --- etiquetas de día --- */
+  var fDia=fmtSeguro({timeZone:TZ,day:'2-digit',month:'short'});
+  function etiquetaDia(off){
+    if(off===0) return 'Hoy';
+    var n=new Date(Date.now()+off*86400000);
+    var s = fDia ? fDia.format(n) : n.getDate()+'';
+    return s.replace(/\./g,'').toUpperCase();
+  }
+
+  /* --- datos de demostración, sobre la estructura real del tablero --- */
+  var SAL=[
+    {h:'07:15',v:'LA 0141',a:'LATAM',x:'Santiago',p:'3',d:0},
+    {h:'07:30',v:'LA 0393',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'07:45',v:'LA 0155',a:'LATAM',x:'Santiago',p:'1B',d:0},
+    {h:'07:54',v:'H2 0241',a:'SKY',x:'Santiago',p:'3',d:0},
+    {h:'08:00',v:'LA 0395',a:'LATAM',x:'La Serena',p:'2',d:0},
+    {h:'08:20',v:'LA 0145',a:'LATAM',x:'Santiago',p:'1B',d:0},
+    {h:'08:21',v:'JA 0139',a:'JetSMART',x:'La Serena',p:'3',d:0},
+    {h:'08:45',v:'LA 0143',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'08:54',v:'H2 0251',a:'SKY',x:'Santiago',p:'1B',d:0},
+    {h:'09:05',v:'JA 0031',a:'JetSMART',x:'Santiago',p:'3',d:0},
+    {h:'09:24',v:'LA 0147',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'09:46',v:'LA 0371',a:'LATAM',x:'Santiago',p:'1B',d:0},
+    {h:'09:47',v:'H2 1731',a:'SKY',x:'La Serena',p:'3',d:0},
+    {h:'10:26',v:'JA 0681',a:'JetSMART',x:'Santiago',p:'1A',d:0},
+    {h:'10:40',v:'LA 0149',a:'LATAM',x:'Santiago',p:'3',d:0},
+    {h:'11:00',v:'LA 1247',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'11:17',v:'LA 0389',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'12:04',v:'LA 0159',a:'LATAM',x:'Concepción',p:'1B',d:0},
+    {h:'12:27',v:'LA 0151',a:'LATAM',x:'Santiago',p:'3',d:0},
+    {h:'12:38',v:'JA 0039',a:'JetSMART',x:'Santiago',p:'2',d:0},
+    {h:'16:41',v:'LA 0159',a:'LATAM',x:'Concepción',p:'1B',d:0},
+    {h:'18:08',v:'LA 0149',a:'LATAM',x:'Santiago',p:'R4',d:0},
+    {h:'19:51',v:'LA 0157',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'21:22',v:'LA 0391',a:'LATAM',x:'Santiago',p:'3',d:0},
+    {h:'21:36',v:'JA 0547',a:'JetSMART',x:'Concepción',p:'2',d:0},
+    {h:'22:49',v:'LA 1245',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'23:29',v:'LA 1857',a:'LATAM',x:'Santiago',p:'1A',d:0},
+    {h:'23:44',v:'LA 1271',a:'LATAM',x:'Antofagasta',p:'R4',d:0},
+    {h:'23:59',v:'LA 0383',a:'LATAM',x:'Santiago',p:'1A',d:0},
+    {h:'00:09',v:'JA 0047',a:'JetSMART',x:'Santiago',p:'1B',d:1}
+  ];
+  var LLE=[
+    {h:'06:40',v:'LA 0140',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'06:55',v:'LA 0392',a:'LATAM',x:'Santiago',p:'1',d:0},
+    {h:'07:10',v:'LA 0378',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'07:14',v:'H2 0240',a:'SKY',x:'Santiago',p:'1',d:0},
+    {h:'07:25',v:'LA 0142',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'07:40',v:'LA 0146',a:'LATAM',x:'Santiago',p:'1',d:0},
+    {h:'07:48',v:'JA 0040',a:'JetSMART',x:'Santiago',p:'2',d:0},
+    {h:'08:05',v:'LA 0144',a:'LATAM',x:'Santiago',p:'1',d:0},
+    {h:'08:16',v:'H2 0250',a:'SKY',x:'Santiago',p:'2',d:0},
+    {h:'08:32',v:'JA 0030',a:'JetSMART',x:'Santiago',p:'1',d:0},
+    {h:'08:40',v:'LA 0148',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'17:03',v:'LA 0150',a:'LATAM',x:'Santiago',p:'1',d:0},
+    {h:'19:18',v:'LA 0156',a:'LATAM',x:'Santiago',p:'1',d:0},
+    {h:'20:41',v:'LA 0394',a:'LATAM',x:'La Serena',p:'1',d:0},
+    {h:'21:03',v:'JA 0546',a:'JetSMART',x:'Concepción',p:'2',d:0},
+    {h:'22:09',v:'LA 1246',a:'LATAM',x:'Santiago',p:'1',d:0},
+    {h:'22:44',v:'LA 1856',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'23:03',v:'LA 1270',a:'LATAM',x:'Santiago',p:'1',d:0},
+    {h:'23:18',v:'LA 0382',a:'LATAM',x:'Santiago',p:'2',d:0},
+    {h:'23:24',v:'JA 0048',a:'JetSMART',x:'Santiago',p:'1',d:0}
+  ];
+
+  var modo='sal', aero='', q='';
+  var panel=document.getElementById('panel');
+  var cuenta=document.getElementById('cuenta');
+  var colb=document.getElementById('colb'), colc=document.getElementById('colc');
+
+  function minutos(h){ var p=h.split(':'); return parseInt(p[0],10)*60+parseInt(p[1],10); }
+  function esc(s){ return String(s).replace(/&/g,'&amp;').replace(/</g,'&lt;').replace(/>/g,'&gt;'); }
+
+  function situacion(f){
+    var ahora=horaChile();
+    var m=minutos(f.h)+f.d*1440;
+    var dif=m-ahora;
+    if(dif<-15) return {t:(modo==='sal'?'Despegado':'Arribado'),c:'done'};
+    if(dif<=0) return {t:(modo==='sal'?'Embarcado':'Arribado'),c:'done'};
+    if(dif<=35 && modo==='sal') return {t:'Últ. llamado',c:'last'};
+    if(dif<=35) return {t:'En aproximación',c:'last'};
+    return {t:'Programado',c:'prog'};
+  }
+
+  function pinta(){
+    var base=(modo==='sal'?SAL:LLE);
+    var ahora=horaChile();
+    var lista=base.slice().sort(function(a,b){
+      var ma=minutos(a.h)+a.d*1440, mb=minutos(b.h)+b.d*1440;
+      var pa=(ma<ahora-60)?ma+2880:ma, pb=(mb<ahora-60)?mb+2880:mb;
+      return pa-pb;
+    });
+    var t=q.trim().toLowerCase();
+    lista=lista.filter(function(f){
+      if(aero && f.a!==aero) return false;
+      if(!t) return true;
+      return (f.v+' '+f.a+' '+f.x+' '+f.p+' '+f.h).toLowerCase().indexOf(t)>-1;
+    });
+    if(colb) colb.textContent = (modo==='sal'?'Destino y vuelo':'Origen y vuelo');
+    if(colc) colc.textContent = (modo==='sal'?'Situación y puerta':'Situación y cinta');
+    if(!lista.length){
+      panel.innerHTML='<p class="vacio">No hay vuelos que coincidan con la búsqueda.</p>';
+      cuenta.textContent='0 vuelos';
+      return;
+    }
+    var html='';
+    for(var i=0;i<lista.length;i++){
+      var f=lista[i], s=situacion(f);
+      html+='<div class="fila">'+
+        '<div class="fila__h">'+esc(f.h)+'<i>'+esc(etiquetaDia(f.d))+'</i></div>'+
+        '<div class="fila__m"><b>'+esc(f.x)+'</b><span>'+esc(f.a)+' &middot; '+esc(f.v)+'</span></div>'+
+        '<div class="fila__e"><span class="pill pill--'+s.c+'">'+esc(s.t)+'</span>'+
+        '<span class="gate">'+(modo==='sal'?'Puerta ':'Cinta ')+esc(f.p)+'</span></div>'+
+      '</div>';
+    }
+    panel.innerHTML=html;
+    cuenta.textContent=lista.length+(lista.length===1?' vuelo':' vuelos')+(aero?' · '+aero:'')+(t?' · "'+q.trim()+'"':'');
+  }
+
+  var tabs=[].slice.call(document.querySelectorAll('.tab'));
+  tabs.forEach(function(b){
+    b.addEventListener('click',function(){
+      modo=b.getAttribute('data-modo');
+      tabs.forEach(function(o){ o.setAttribute('aria-selected', o===b?'true':'false'); });
+      panel.setAttribute('aria-labelledby', b.id);
+      pinta();
+    });
+  });
+  var chips=[].slice.call(document.querySelectorAll('.chip'));
+  chips.forEach(function(b){
+    b.addEventListener('click',function(){
+      aero=b.getAttribute('data-aero')||'';
+      chips.forEach(function(o){ o.setAttribute('aria-pressed', o===b?'true':'false'); });
+      pinta();
+    });
+  });
+  var inp=document.getElementById('q');
+  if(inp) inp.addEventListener('input',function(){ q=inp.value; pinta(); });
+  pinta();
+  setInterval(pinta,60000);
+
+  /* --- reveal --- */
+  var items=[].slice.call(document.querySelectorAll('.rv'));
+  var mostrar=function(el){ el.classList.add('on'); };
+  if('IntersectionObserver' in window){
+    var io=new IntersectionObserver(function(es){
+      es.forEach(function(en){ if(en.isIntersecting){ mostrar(en.target); io.unobserve(en.target); } });
+    },{rootMargin:'0px 0px -8% 0px',threshold:.08});
+    items.forEach(function(el){ io.observe(el); });
+  } else { items.forEach(mostrar); }
+  setTimeout(function(){ items.forEach(mostrar); },2500);
+  if(reduce) items.forEach(mostrar);
+})();
+</script>
+</body>
+</html>
